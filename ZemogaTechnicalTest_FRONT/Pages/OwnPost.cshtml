@@ -1,0 +1,96 @@
+﻿@page
+@using ZemogaTechnicalTest_FRONT.DTO;
+@model ZemogaTechnicalTest_FRONT.Pages.OwnPostModel
+@{
+    ViewData["Title"] = "OwnPost";
+}
+
+<br />
+<div class="container-lg">
+    <div class="table-responsive" style="overflow-x: hidden">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-7"><h2>My <b>Posts</b></h2></div>
+                    <div class="col-sm-3">
+                        <form method="post">
+                            <button asp-page-handler="viewPosts" class="btn btn-info add-new">View published posts</button>
+                        </form>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button onclick="$('#editDiv').show()" class="btn btn-info add-new"><i class="fa fa-plus"></i>&nbsp; new post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 wow fadeIn" id="editDiv" style="display: none">
+                <div class="card-header font-weight-bold">Add / Edit Post</div>
+                <div class="card-body">
+                    <!-- Default form reply -->
+                    <form asp-page-handler="editPost" method="post">
+                        <!-- Comment -->
+                        <div class="form-group">
+                            <label for="replyFormComment">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" />
+                            <input type="hidden" name="postId" id="postId" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="replyFormComment">Content</label>
+                            <textarea class="form-control" id="content" name="content" rows="5"></textarea>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-info btn-md" type="submit">Save</button>
+                            <a onclick="$('#editDiv').hide()" class="btn btn-info btn-md">Cancel</a>
+                        </div>
+                    </form>
+                    <!-- Default form reply -->
+
+                </div>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Creation Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (PostDTO post in Model.ownPosts)
+                        {
+                            <tr>
+                                <td>@post.PostName</td>
+                                <td>@post.PostContent</td>
+                                <td>@post.CreatedDate</td>
+                                <td>@post.StatusName</td>
+                                <td>
+                                    @if (post.StatusID == 1 || post.StatusID == 4)
+                                    {
+                                        <form method="post">
+                                            <a onclick="$('#editDiv').show(); $('#postId').val('@post.ID'); $('#title').val('@post.PostName'); $('#content').val('@post.PostContent'); " style="border: 0px;" class="button_pro" title="Edit" data-toggle="tooltip"><i class="material-icons">edit</i></a>
+                                            @if (post.StatusID == 1)
+                                            {
+                                                <button asp-page-handler="submit" style="border: 0px;" class="button_pro" title="Submit" data-toggle="tooltip"><i class="material-icons">mail_outline</i></button>
+                                            }
+                                            <input type="hidden" name="id" id="id" value="@post.ID" />
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

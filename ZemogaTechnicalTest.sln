@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZemogaTechnicalTest", "ZemogaTechnicalTest\ZemogaTechnicalTest.csproj", "{F9643998-36E9-4A0D-870C-7A6986FE767E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZemogaTechnicalTest_FRONT", "ZemogaTechnicalTest_FRONT\ZemogaTechnicalTest_FRONT.csproj", "{2DC6AE5B-25D8-45C5-90A1-59572C152EBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9643998-36E9-4A0D-870C-7A6986FE767E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9643998-36E9-4A0D-870C-7A6986FE767E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9643998-36E9-4A0D-870C-7A6986FE767E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9643998-36E9-4A0D-870C-7A6986FE767E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC6AE5B-25D8-45C5-90A1-59572C152EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC6AE5B-25D8-45C5-90A1-59572C152EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC6AE5B-25D8-45C5-90A1-59572C152EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC6AE5B-25D8-45C5-90A1-59572C152EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F323447-51A7-4347-B1CE-EC1CAAC66C3A}
+	EndGlobalSection
+EndGlobal

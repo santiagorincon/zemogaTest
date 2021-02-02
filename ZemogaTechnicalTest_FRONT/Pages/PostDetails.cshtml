@@ -1,0 +1,109 @@
+﻿@page "{postId}"
+@using ZemogaTechnicalTest_FRONT.DTO;
+@model ZemogaTechnicalTest_FRONT.Pages.PostDetailsModel
+@{
+    ViewData["Title"] = "PostDetails";
+}
+
+<!--Main Navigation-->
+<main class="mt-5 pt-5">
+    <div class="row">
+        <div class="col-sm-4">
+            <form method="post">
+                <button asp-page-handler="viewPosts" class="btn btn-info add-new">Back</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <!--Section: Cards-->
+        <section class="pt-5">
+            <!-- Heading & Description -->
+            <div class="wow fadeIn">
+                <!--Section heading-->
+                <h2 class="h1 text-center mb-5">@Model.post.PostName</h2>
+                <!--Section description-->
+                <p class="text-center">@Model.post.PostContent</p></br>
+            </div>
+        </section>
+    </div>
+</main>
+<!--Main layout-->
+<main class="mt-1 pt-1">
+    <div class="container">
+        <!--Section: Post-->
+        <section class="mt-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-8 mb-4">
+                    <!--Comments-->
+                    <div class="card card-comments mb-3 wow fadeIn">
+                        <div class="card-header font-weight-bold">Comments</div>
+                        <div class="card-body">
+
+                            @{
+                                foreach (PostCommentDTO comment in Model.post.Comments)
+                                {
+                                    <div class="media d-block d-md-flex mt-4">
+                                        <img class="d-flex mb-3 mx-auto " src="https://pulmocide.devbrandcast.com/wp-content/themes/wordpress-bootstrap/images/avatar-blank.svg" alt="Generic placeholder image">
+                                        <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                                            <h5 class="mt-0 font-weight-bold">
+                                                @comment.UserFullname
+                                                <a href="" class="pull-right">
+
+                                                </a>
+                                            </h5>
+                                            @comment.Comment
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <!--/.Comments-->
+                    <!--Reply-->
+                    <div class="card mb-3 wow fadeIn">
+                        <div class="card-header font-weight-bold">Leave a comment</div>
+                        <div class="card-body">
+                            <!-- Default form reply -->
+                            <form asp-page-handler="SendComment" method="post">
+                                <!-- Comment -->
+                                <div class="form-group">
+                                    <label for="replyFormComment">Your comment</label>
+                                    <textarea class="form-control" id="comment" name="comment" rows="5"></textarea>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-info btn-md" type="submit">Send</button>
+                                </div>
+                            </form>
+                            <!-- Default form reply -->
+
+                        </div>
+                    </div>
+                    <!--/.Reply-->
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!--Section: Post-->
+    </div>
+</main>
+<!--Main layout-->
+<!--Footer-->
+<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn"></footer>
+<!--/.Footer-->
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();</script>
+

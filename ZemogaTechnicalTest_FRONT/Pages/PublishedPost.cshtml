@@ -1,0 +1,75 @@
+﻿@page
+@using ZemogaTechnicalTest_FRONT.DTO;
+@model ZemogaTechnicalTest_FRONT.Pages.PublishedPostModel
+@{
+    ViewData["Title"] = "PublishedPost";
+}
+
+<!--Main Navigation-->
+<header></header>
+<!--Main Navigation-->
+<!--Main layout-->
+<main class="mt-5 pt-5">
+    <div class="container">
+
+        <!--Section: Cards-->
+        <section class="pt-5">
+            <div class="row">
+                <div class="col-sm-4">
+                    <form method="post">
+                        <button asp-page-handler="goIndex" class="btn btn-info add-new">Back</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Heading & Description -->
+            <div class="wow fadeIn">
+                <!--Section heading-->
+                <h2 class="h1 text-center mb-5">Blogs published</h2>
+
+            </div>
+            @{
+                foreach (PostDTO post in Model.publishedPosts)
+                {
+                    <div class="row wow fadeIn">
+                        <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
+                            <h3 class="mb-3 font-weight-bold dark-grey-text">
+                                <strong>@post.PostName</strong>
+                            </h3>
+                            <p>
+                                <strong>@post.ApprovalDate</strong>
+                            </p>
+                            <p class="grey-text">@post.PostContent</p>
+                            <form asp-page-handler="ViewDetails" method="post">
+                                <button class="btn btn-primary btn-md">View more / View comments</button>
+                                <input type="hidden" name="id" value="@post.ID" />
+                            </form>
+
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <hr class="mb-5">
+                }
+            }
+        </section>
+        <!--Section: Cards-->
+    </div>
+</main>
+<!--Main layout-->
+<!--Footer-->
+<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn"></footer>
+<!--/.Footer-->
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();</script>
+
